@@ -9,6 +9,13 @@ function setDate() {
   const minutes = now.getMinutes(); // get current minutes
   const hours = now.getHours(); // get current hours
 
+  // prevent second hand spinback
+  if (seconds == 0) {
+    secondHand.style.transition = 'none';
+  } else {
+    secondHand.style.transition = null;
+  }
+
   // current unit over how many steps in the cirle
   // - multiplied by degrees in full circle (converting # to degrees)
   // - offset it by 90 (so arms start at 12 )
