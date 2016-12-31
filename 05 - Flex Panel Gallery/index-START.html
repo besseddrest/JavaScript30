@@ -24,6 +24,7 @@
     .panels {
       min-height:100vh;
       overflow: hidden;
+      display: flex;
     }
 
     .panel {
@@ -41,6 +42,11 @@
       font-size: 20px;
       background-size:cover;
       background-position:center;
+      flex: 1; /* each will evenly distribute in the rest of the space */
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
     }
 
 
@@ -50,11 +56,21 @@
     .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
     .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
 
+    /* Flex children */
     .panel > * {
       margin:0;
       width: 100%;
       transition:transform 0.5s;
+      flex: 1 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    .panel >*:first-child { transform: translateY(-100%); }
+    .panel.open-active >*:first-child { transform: translateY(0); }
+    .panel >*:last-child { transform: translateY(100%); }
+    .panel.open-active >*:last-child { transform: translateY(0); }
 
     .panel p {
       text-transform: uppercase;
@@ -68,6 +84,7 @@
 
     .panel.open {
       font-size:40px;
+      flex: 5;
     }
 
     .cta {
@@ -106,11 +123,7 @@
     </div>
   </div>
 
-  <script>
-
-  </script>
-
-
+  <script src="./script.js"></script>
 
 </body>
 </html>
