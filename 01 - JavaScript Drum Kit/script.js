@@ -1,3 +1,9 @@
+// TODO Improvements
+// - convert to ES6
+// - target specific elements with document.querySelector()
+// - listen for CSS transition to end, instead of setting a timeout
+// - break into separate functions
+
 // store elements
 var allAudio = [].slice.call(document.getElementsByTagName('audio'));
 var allKeys = [].slice.call(document.getElementsByClassName('key'));
@@ -31,3 +37,8 @@ document.onkeydown = function(e) {
 function matchDataKey(element) {
   return element.dataset.key == keyCode;
 }
+
+// Takeaways
+// - you can find exactly the element you need! document.querySelector / document.querySelectorAll
+// - cleaner to listen for the keydown event than rewrite the document's keydown event
+// - you can key off the CSS transitionend - therefor no need to create new key instance, and remove class with setTimeout
