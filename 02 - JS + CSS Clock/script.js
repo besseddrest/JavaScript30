@@ -16,7 +16,6 @@ function setDate() {
   const minutesDegrees = convertToDegrees(minutes, 60);
   const hoursDegrees = convertToDegrees(hours, 12);
 
-
   secondHand.style.transform = getRotation(secondsDegrees);
   minuteHand.style.transform = getRotation(minutesDegrees);
   hourHand.style.transform = getRotation(hoursDegrees);
