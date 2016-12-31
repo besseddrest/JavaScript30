@@ -63,15 +63,15 @@
   </style>
 
   <script>
-    const inputs = document.querySelectorAll('.controls input');
+    // no need to convert to array (currently NodeList) because we can run forEach() on inputs
+    const inputs = document.querySelectorAll('.controls input'); // get all the inputs
 
     function handleUpdate() {
-      const suffix = this.dataset.sizing || '';
-      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+      const suffix = this.dataset.sizing || ''; // get the sizing value
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix); // change the variables, not specific styles
     }
 
-    inputs.forEach(input => input.addEventListener('change', handleUpdate));
-    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+    inputs.forEach(input => input.addEventListener('input', handleUpdate)); // listen to all inputs
   </script>
 
 
